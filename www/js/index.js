@@ -72,6 +72,7 @@ var app = {
             receivedElement.setAttribute('style', 'display:block;');
             console.log("Vamos a mostrar el id del dispositivo", data.registrationId);
             document.getElementById("regId").innerHTML = data.registrationId;
+            document.getElementById("aRegId").innerHTML = data.registrationId;
             // llamada al webservice para traer los artículos de una categoría
             $.ajax({
                 async: true,
