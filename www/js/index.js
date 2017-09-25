@@ -66,13 +66,11 @@ var app = {
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
-            var regId = parentElement.querySelector('.regId');
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
 
             document.getElementById("regId").innerHTML = data.registrationId;
-            document.getElementById("regType").innerHTML = data.registrationType;
             
             $.ajax({
                 async: true,
@@ -81,8 +79,7 @@ var app = {
                 url: "http://clientes.at4grupo.es/webservice/firebase/escritura/?funcion=escribir_log",
                 method: "POST",
                 data: {
-                    regId: data.registrationId,
-                    regType: data.registrationType
+                    regId: data.registrationId
                     
                 },
                 success: function (response, txtStatus, xhr) {
