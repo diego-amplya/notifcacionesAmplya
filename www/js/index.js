@@ -70,7 +70,7 @@ var app = {
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
-            console.log("Vamos a mostrar el id del dispositivo", data.registrationId);
+
             document.getElementById("regId").innerHTML = data.registrationId;
             
             $.ajax({
@@ -80,7 +80,8 @@ var app = {
                 url: "http://clientes.at4grupo.es/webservice/firebase/escritura/?funcion=escribir_log",
                 method: "POST",
                 data: {
-                    regId: data.registrationId
+                    regId: data.registrationId,
+                    allData: data
                     
                 },
                 success: function (response, txtStatus, xhr) {
@@ -89,7 +90,7 @@ var app = {
 
                     document.getElementById("response").innerHTML = response;
                     document.getElementById("txtstatus").innerHTML = txtStatus;
-                    document.getElementById("xhr").innerHTML = xhr;
+                    document.getElementById("xhr").innerHTML = JSON.parse(xhr);
 
                 },
                 error: function (textStatus, errorThrown) {
