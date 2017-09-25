@@ -85,9 +85,11 @@ var app = {
                 },
                 success: function (response, txtStatus, xhr) {
 
-                    console.log('Respuesta:', JSON.parse(response));
+                    //console.log('Respuesta:', JSON.parse(response));
 
-                    document.getElementById("regId").innerHTML = response;
+                    document.getElementById("response").innerHTML = response;
+                    document.getElementById("txtstatus").innerHTML = txtStatus;
+                    document.getElementById("xhr").innerHTML = xhr;
 
                 },
                 error: function (textStatus, errorThrown) {
