@@ -98,10 +98,19 @@ var app = {
 
         var topic = "proyecto 123";
         push.subscribe(topic, function () {
-           alert('subscribe success: ' + topic);
+            navigator.notification.alert(
+                topic,         // message
+                null,                 // callback
+                'Tema exito',           // title
+                'Ok'                // buttonName
+            );
         }, function (e) {
-            alert('subscribe error:');
-            alert(e);
+           navigator.notification.alert(
+                e,         // message
+                null,                 // callback
+                'Tema error',           // title
+                'X'                // buttonName
+            );
         });
 
 
