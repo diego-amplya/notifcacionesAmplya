@@ -96,21 +96,11 @@ var app = {
         });
 
 
-        var topic = "proyecto 123";
+        var topic = "Topic pruebas";
         push.subscribe(topic, function () {
-            navigator.notification.alert(
-                topic,         // message
-                null,                 // callback
-                'Tema exito',           // title
-                'Ok'                // buttonName
-            );
+            document.getElementById("topic").innerHTML = topic;
         }, function (e) {
-           navigator.notification.alert(
-                e,         // message
-                null,                 // callback
-                'Tema error',           // title
-                'X'                // buttonName
-            );
+            document.getElementById("topic").innerHTML = "No ha sido posible suscribirse al tema";
         });
 
 
