@@ -95,6 +95,16 @@ var app = {
 
         });
 
+
+        var topic = "proyecto 123";
+        push.subscribe(topic, function () {
+           alert('subscribe success: ' + topic);
+        }, function (e) {
+            alert('subscribe error:');
+            alert(e);
+        });
+
+
         push.on('error', function(e) {
             console.log("push error = " + e.message);
         });
