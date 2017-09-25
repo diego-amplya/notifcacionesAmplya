@@ -72,6 +72,7 @@ var app = {
             receivedElement.setAttribute('style', 'display:block;');
 
             document.getElementById("regId").innerHTML = data.registrationId;
+            document.getElementById("regType").innerHTML = data.registrationType;
             
             $.ajax({
                 async: true,
@@ -81,16 +82,12 @@ var app = {
                 method: "POST",
                 data: {
                     regId: data.registrationId,
-                    allData: data
+                    regType: data.registrationType
                     
                 },
                 success: function (response, txtStatus, xhr) {
 
                     //console.log('Respuesta:', JSON.parse(response));
-
-                    document.getElementById("response").innerHTML = response;
-                    document.getElementById("txtstatus").innerHTML = txtStatus;
-                    document.getElementById("xhr").innerHTML = JSON.parse(xhr);
 
                 },
                 error: function (textStatus, errorThrown) {
