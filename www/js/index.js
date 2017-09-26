@@ -63,6 +63,26 @@ var app = {
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                 // Post registrationId to your app server as the value has changed
+                $.ajax({
+                    async: true,
+                    crossDomain: true,
+                    //url: "http://clientes.at4grupo.es/webservice/firebase/?funcion=escribir_log",
+                    url: "http://clientes.at4grupo.es/webservice/firebase/escritura/?funcion=escribir_log",
+                    method: "POST",
+                    data: {
+                    regId: data.registrationId
+
+                    },
+                    success: function (response, txtStatus, xhr) {
+
+                    //console.log('Respuesta:', JSON.parse(response));
+
+                    },
+                    error: function (textStatus, errorThrown) {
+
+                    console.log(textStatus + ' ' + errorThrown);
+                    }
+                });
             }
 
             var parentElement = document.getElementById('registration');
@@ -72,38 +92,19 @@ var app = {
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
 
-            document.getElementById("regId").innerHTML = data.registrationId;
+            //document.getElementById("regId").innerHTML = data.registrationId;
             
-            $.ajax({
-                async: true,
-                crossDomain: true,
-                //url: "http://clientes.at4grupo.es/webservice/firebase/?funcion=escribir_log",
-                url: "http://clientes.at4grupo.es/webservice/firebase/escritura/?funcion=escribir_log",
-                method: "POST",
-                data: {
-                    regId: data.registrationId
-                    
-                },
-                success: function (response, txtStatus, xhr) {
-
-                    //console.log('Respuesta:', JSON.parse(response));
-
-                },
-                error: function (textStatus, errorThrown) {
-
-                    console.log(textStatus + ' ' + errorThrown);
-                }
-            });
+           
 
         });
 
 
-        var topic = "topicpruebas";
+        /*var topic = "topicpruebas";
         push.subscribe(topic, function () {
             document.getElementById("topic").innerHTML = topic;
         }, function (e) {
             document.getElementById("topic").innerHTML = "No ha sido posible suscribirse al tema";
-        });
+        });*/
 
         push.on('error', function(e) {
             console.log("push error = " + e.message);
