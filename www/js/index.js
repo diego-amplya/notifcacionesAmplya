@@ -52,7 +52,7 @@ var app = {
             "windows": {}
         });
         console.log('after init');
-        var topic = "Topic pruebas";
+        var topic = "topic-pruebas";
         push.subscribe(topic, function () {
             document.getElementById("topic").innerHTML = topic;
         }, function (e) {
