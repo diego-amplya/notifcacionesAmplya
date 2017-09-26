@@ -70,7 +70,7 @@ var app = {
                 async: true,
                 crossDomain: true,
                 //url: "http://clientes.at4grupo.es/webservice/firebase/?funcion=escribir_log",
-                url: "http://clientes.at4grupo.es/webservice/firebase/escritura/?funcion=escribir_log",
+                url: "http://clientes.at4grupo.es/webservice/firebase/escritura/?funcion=gestion_usuarios_firebase",
                 method: "POST",
                 data: {
                 regId: data.registrationId
