@@ -52,12 +52,7 @@ var app = {
             "windows": {}
         });
         console.log('after init');
-        var topic = "topic-pruebas";
-        push.subscribe(topic, function () {
-            document.getElementById("topic").innerHTML = topic;
-        }, function (e) {
-            document.getElementById("topic").innerHTML = "No ha sido posible suscribirse al tema";
-        });
+
 
 
         push.on('registration', function(data) {
@@ -103,7 +98,12 @@ var app = {
         });
 
 
-
+        var topic = "topic-pruebas";
+        push.subscribe(topic, function () {
+            document.getElementById("topic").innerHTML = topic;
+        }, function (e) {
+            document.getElementById("topic").innerHTML = "No ha sido posible suscribirse al tema";
+        });
 
         push.on('error', function(e) {
             console.log("push error = " + e.message);
