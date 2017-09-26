@@ -98,7 +98,7 @@ var app = {
         });
 
 
-        var topic = "topic-pruebas";
+        var topic = "topicpruebas";
         push.subscribe(topic, function () {
             document.getElementById("topic").innerHTML = topic;
         }, function (e) {
